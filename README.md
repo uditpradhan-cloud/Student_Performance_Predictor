@@ -420,7 +420,6 @@ Student_Performance_Predictor/
 
 Absolutely. Here is the **complete `How to Run` section**, formatted so you can **copy and paste it directly into your GitHub `README.md`**.
 
-````
 ## How to Run
 
 ### 1. Clone the Repository
