@@ -418,56 +418,118 @@ Student_Performance_Predictor/
 └── student_performance_model_final.pkl
 ```
 
+Absolutely. Here is the **complete `How to Run` section**, formatted so you can **copy and paste it directly into your GitHub `README.md`**.
+
+````markdown
 ## How to Run
 
 ### 1. Clone the Repository
 
-````markdown
+Open a terminal and clone this repository:
+
 ```bash
-git clone <your-repository-url>
-cd Student_Performance_Predictor
+git clone https://github.com/<your-username>/<your-repository-name>.git
 ````
+
+Navigate to the project directory:
+
+```bash
+cd <your-repository-name>
+```
 
 ### 2. Install Dependencies
 
 Install the required Python libraries:
 
 ```bash
-pip install pandas numpy scikit-learn joblib matplotlib seaborn jupyter
+pip install pandas scikit-learn joblib
 ```
 
-### 3. Run the Prediction Program
+### 3. Run the Student Performance Predictor
 
-The trained final model is already included in the repository. Run:
+The trained model is already included in the repository, so you do not need to train the model again.
+
+Run the prediction program:
 
 ```bash
 python predict_student.py
 ```
 
-The program will interactively ask for student information such as demographic details, education, family support, study habits, lifestyle, health, and absences.
+The program will ask you to enter information about a student, including demographic, educational, family, lifestyle, health, and attendance-related information.
 
-It then displays:
+After entering the required information, the system will display:
 
-* Predicted final grade (`G3`) out of 20
-* Performance level
+* **Predicted Final Grade (G3)** out of 20
+* **Performance Level**
 
-The prediction script loads the saved `student_performance_model_final.pkl` model automatically. 
+The prediction program automatically loads the trained model:
 
-### 4. Explore the Notebook
+```text
+student_performance_model_final.pkl
+```
 
-To reproduce or explore the model-development workflow:
+### 4. Explore the Machine Learning Notebook
+
+If you want to explore the complete machine learning workflow, install Jupyter Notebook:
+
+```bash
+pip install jupyter
+```
+
+Start Jupyter Notebook:
 
 ```bash
 jupyter notebook
 ```
 
-Open:
+Open the following notebook:
 
 ```text
 student_performance_prediction(1).ipynb
 ```
 
-The notebook contains the data analysis, preprocessing, model experiments, evaluation, and final model training workflow.
+The notebook contains the complete project workflow, including:
+
+* Exploratory Data Analysis
+* Data preprocessing
+* Feature encoding
+* Model training
+* Model comparison
+* Model evaluation
+* Cross-validation
+* Feature importance analysis
+* Additional model experiments
+* Final model training
+
+### Quick Start
+
+If you only want to run the trained prediction system, use:
+
+```bash
+git clone https://github.com/<your-username>/<your-repository-name>.git
+cd <your-repository-name>
+pip install pandas scikit-learn joblib
+python predict_student.py
+```
+
+The trained model `student_performance_model_final.pkl` must remain in the same project directory as `predict_student.py`.
+
+````
+
+**Only replace**:
+
+```text
+<your-username>
+<your-repository-name>
+````
+
+with your actual GitHub username and repository name.
+
+For example, if your GitHub repository is `Student_Performance_Predictor`, the clone command would look like:
+
+```bash
+git clone https://github.com/YourUsername/Student_Performance_Predictor.git
+```
 
 ## Limitations
 
