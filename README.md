@@ -428,7 +428,7 @@ Open a terminal and clone this repository:
 
 ```bash
 git clone https://github.com/<your-username>/<your-repository-name>.git
-````
+```
 
 Navigate to the project directory:
 
