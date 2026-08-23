@@ -417,11 +417,12 @@ Student_Performance_Predictor/
 ├── student_performance_model_v2_g1_g2.pkl
 └── student_performance_model_final.pkl
 ```
-````markdown
+
 ## How to Run
 
 ### 1. Clone the Repository
 
+````markdown
 ```bash
 git clone <your-repository-url>
 cd Student_Performance_Predictor
