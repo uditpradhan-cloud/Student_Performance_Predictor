@@ -17,16 +17,15 @@ The final trained model is saved as a reusable `.pkl` file and is accompanied by
 The model is intended as a **predictive estimation tool**, not as a guaranteed measure of a student's future academic result. The feature-importance analysis indicates which variables the trained model relied on most within the dataset, but it does not establish that those variables directly cause changes in student performance.
 
 ## Index
-
-| File                                     | Description                                                                                                                                                      |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `README.md`                              | Main project documentation containing the project overview, methodology, dataset information, results, setup instructions, limitations, and future improvements. |
-| `student_performance_prediction.ipynb`   | Main Jupyter Notebook containing data analysis, preprocessing, model development, experimentation, evaluation, and final model training.                         |
-| `student-mat.csv`                        | Student Performance mathematics dataset used for training and evaluating the machine-learning models.                                                            |
-| `predict_student.py`                     | Terminal-based prediction program that loads the final model, accepts student information, predicts `G3`, and displays the performance level.                    |
-| `student_performance_model_baseline.pkl` | Serialized baseline machine-learning model created during the model-development process.                                                                         |
-| `student_performance_model_final.pkl`    | Serialized final Random Forest regression model used by `predict_student.py`.                                                                                    |
-| `student_performance_model_v2_g1_g2.pkl` | Serialized Version 2 experimental model that uses `G1` and `G2` for predicting `G3`.                                                                             |
+| File                                                                               | Description                                                                                                                                                             |
+| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`README.md`](README.md)                                                           | Main project documentation containing the project overview, methodology, results, setup instructions, limitations, and future improvements.                             |
+| [`student_performance_prediction.ipynb`](student_performance_prediction.ipynb)     | Main Jupyter Notebook containing data analysis, preprocessing, model development, experimentation, evaluation, and final model training.                                |
+| [`student-mat.csv`](student-mat.csv)                                               | Student Performance mathematics dataset used for the machine-learning experiments and final model.                                                                      |
+| [`predict_student.py`](predict_student.py)                                         | Terminal-based prediction program that loads the final trained model, accepts student information, predicts the final grade (`G3`), and displays the performance level. |
+| [`student_performance_model_baseline.pkl`](student_performance_model_baseline.pkl) | Serialized baseline machine-learning model created during the model-development process.                                                                                |
+| [`student_performance_model_final.pkl`](student_performance_model_final.pkl)       | Serialized final Random Forest regression model used by `predict_student.py`.                                                                                           |
+| [`student_performance_model_v2_g1_g2.pkl`](student_performance_model_v2_g1_g2.pkl) | Serialized Version 2 experimental model that uses `G1` and `G2` to predict `G3`.                                                                                        |
 
 ## How to Run
 
