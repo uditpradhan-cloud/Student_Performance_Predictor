@@ -488,6 +488,4 @@ The notebook contains the data analysis, preprocessing, model experiments, evalu
 - Continuously retrain and evaluate the model as new student-performance data becomes available.
 
 ## Author
-Made with curiosity by,
-**Udit Pradhan**
-Developed as part of the **IBM PBEL** project submission.
+Developed with curiosity by **Udit Pradhan**.
