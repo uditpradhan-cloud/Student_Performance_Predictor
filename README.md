@@ -391,3 +391,28 @@ The selected Random Forest model was further evaluated using 5-fold cross-valida
 - **Predictions within ±2 marks:** 46.33%
 
 The results indicate useful but limited-to-moderate predictive performance. Predictions should therefore be treated as estimates rather than guaranteed final grades.
+
+## Technologies Used
+
+- **Python** — Core programming language
+- **Jupyter Notebook** — Data analysis and model development
+- **Pandas** — Data loading and manipulation
+- **NumPy** — Numerical operations
+- **Matplotlib** — Data visualization
+- **Seaborn** — Exploratory data visualization
+- **Scikit-learn** — Preprocessing, model training, evaluation, and cross-validation
+- **Joblib** — Saving and loading trained machine learning models
+
+## Project Structure
+
+```text
+Student_Performance_Predictor/
+│
+├── README.md
+├── student_performance_prediction(1).ipynb
+├── student-mat(2).csv
+├── predict_student.py
+│
+├── student_performance_model_baseline(2).pkl
+├── student_performance_model_v2_g1_g2.pkl
+└── student_performance_model_final.pkl
