@@ -119,3 +119,235 @@ Categorical features are encoded before being passed to the machine learning mod
 After categorical encoding, the 30 original input features are transformed into **56 processed features** for model training.
 
 This preprocessing approach allows the regression models to work with both numerical and categorical student information within a unified machine learning pipeline.
+
+## Methodology
+
+The project follows a structured machine learning workflow, beginning with exploratory analysis of the student dataset and ending with a serialized prediction model that can be used through the command-line application.
+
+### Machine Learning Workflow
+
+```text
+Student Performance Dataset
+            │
+            ▼
+   Exploratory Data Analysis
+            │
+            ▼
+   Feature / Target Selection
+            │
+            ▼
+      Train-Test Split
+            │
+            ▼
+   Data Preprocessing
+   ┌──────────────────────┐
+   │ Numerical Features   │
+   │ Categorical Features │
+   └──────────────────────┘
+            │
+            ▼
+   Categorical Encoding
+            │
+            ▼
+     Model Comparison
+            │
+            ▼
+    Random Forest Model
+            │
+            ▼
+ Model Evaluation & CV
+            │
+            ▼
+ Hyperparameter Experiments
+            │
+            ▼
+ Feature Importance Analysis
+            │
+            ▼
+ Final Model Training
+            │
+            ▼
+student_performance_model_final.pkl
+            │
+            ▼
+     predict_student.py
+            │
+            ▼
+     Predicted G3 Grade
+```
+
+## Exploratory Data Analysis
+
+The notebook begins by examining the structure and characteristics of the dataset before model training.
+
+The analysis includes inspection of:
+
+* Dataset dimensions
+* Data types
+* Numerical and categorical variables
+* Missing-value information
+* Descriptive statistics
+* Target variable distribution
+* Relationships between relevant variables
+* Student performance patterns
+* Feature relationships and correlations
+
+The exploratory phase is used to understand the dataset and guide subsequent preprocessing and modelling decisions.
+
+## Target and Feature Selection
+
+The prediction target is:
+
+```text
+G3
+```
+
+where `G3` represents the student's final mathematics grade.
+
+For the primary model, the earlier-period grades `G1` and `G2` are excluded from the input feature set. This results in a prediction task based on the student's demographic, educational, behavioral, family, support, and lifestyle information.
+
+The resulting primary modelling setup consists of:
+
+* **30 input features**
+* **1 target variable (`G3`)**
+
+A separate Version 2 experiment was also performed using `G1` and `G2` as additional predictors. This experiment is kept separate from the primary model because it represents a different prediction scenario.
+
+## Data Splitting
+
+The primary modelling workflow uses a train-test split to create separate data for model development and evaluation.
+
+The training data is used to fit the preprocessing and regression models, while the held-out test data is used to measure predictive performance on previously unseen examples.
+
+The project also uses cross-validation during model evaluation to obtain a broader estimate of model performance across multiple data splits.
+
+## Preprocessing
+
+The dataset contains both numerical and categorical variables, so the notebook uses separate preprocessing strategies for each type.
+
+### Numerical Features
+
+Numerical features are passed through the preprocessing pipeline without categorical encoding.
+
+### Categorical Features
+
+Categorical features are transformed using:
+
+```python
+OneHotEncoder(handle_unknown="ignore")
+```
+
+This converts categorical values into numerical representations that can be processed by the machine learning algorithms.
+
+The preprocessing is incorporated into a `ColumnTransformer`, allowing the numerical and categorical transformations to be applied consistently.
+
+The 30 original input features result in **56 processed features** after categorical encoding.
+
+## Model Development
+
+Several regression algorithms were evaluated during the project to determine which approach was most suitable for predicting `G3`.
+
+The models explored include:
+
+* Linear Regression
+* Random Forest Regression
+* Gradient Boosting Regression
+* Tuned Random Forest
+* Extra Trees Regression
+* HistGradientBoosting Regression
+
+Additional experiments were also conducted using:
+
+* A Version 2 Random Forest model incorporating `G1` and `G2`
+* A behavior-focused Random Forest approach
+* A two-stage approach combining classification and regression for students with zero final grades
+
+The initial model comparison identified **Random Forest Regression** as the strongest of the first three baseline models evaluated.
+
+### Initial Model Comparison
+
+| Model             |        MAE |       RMSE |         R² |
+| ----------------- | ---------: | ---------: | ---------: |
+| Linear Regression |     3.3953 |     4.1957 |     0.1415 |
+| **Random Forest** | **2.9936** | **3.7485** | **0.3147** |
+| Gradient Boosting |     3.1077 |     3.9299 |     0.2468 |
+
+Lower MAE and RMSE indicate smaller prediction errors, while a higher R² indicates that more of the variation in the target is explained by the model.
+
+Based on these initial results, Random Forest was selected for further experimentation.
+
+## Hyperparameter Tuning
+
+The Random Forest model was subsequently tuned using `GridSearchCV`.
+
+The search evaluated **108 parameter combinations**.
+
+The best configuration identified during the search was:
+
+```text
+n_estimators = 300
+max_depth = 15
+min_samples_split = 5
+min_samples_leaf = 1
+```
+
+However, the tuned model did not improve upon the original Random Forest on the held-out test set.
+
+| Model                  |        MAE |       RMSE |         R² |
+| ---------------------- | ---------: | ---------: | ---------: |
+| Original Random Forest | **2.9936** | **3.7485** | **0.3147** |
+| Tuned Random Forest    |     3.0042 |     3.7582 |     0.3112 |
+
+Therefore, hyperparameter tuning was retained as part of the experimentation process rather than being presented as an improvement over the original model.
+
+## Cross-Validation
+
+The project also evaluates model performance using **5-fold cross-validation**.
+
+For each fold, the model is trained using a portion of the available data and evaluated on the remaining portion. The resulting scores are then averaged to provide a more robust estimate of generalization performance.
+
+For the Random Forest model, the cross-validation results reported by the project are:
+
+* **Mean MAE:** 2.99 marks
+* **Mean RMSE:** 4.00 marks
+* **Mean R²:** 0.216
+* **Predictions within ±2 marks:** 46.33%
+
+These values are also displayed by the project's command-line prediction script.
+
+## Feature Importance Analysis
+
+After training the Random Forest model, feature importance was examined to identify which variables contributed most strongly to the model's predictions.
+
+The highest-ranked features included:
+
+| Rank | Feature      |
+| ---: | ------------ |
+|    1 | `absences`   |
+|    2 | `failures`   |
+|    3 | `health`     |
+|    4 | `goout`      |
+|    5 | `age`        |
+|    6 | `studytime`  |
+|    7 | `freetime`   |
+|    8 | `traveltime` |
+|    9 | `Walc`       |
+|   10 | `Fedu`       |
+
+The analysis indicates that `absences` and `failures` were particularly influential features in the trained Random Forest model.
+
+These rankings should be interpreted as **model feature importance**, not causal relationships. A high feature-importance value means that the model relied more heavily on that feature when making predictions; it does not demonstrate that changing the feature would directly cause a change in a student's final grade.
+
+## Final Model
+
+After the experimentation and evaluation stages, a final Random Forest regression pipeline was trained and serialized as:
+
+```text
+student_performance_model_final.pkl
+```
+
+The final model is trained using the complete available feature/target dataset after preprocessing, allowing the saved model to be reused for predictions.
+
+The accompanying `predict_student.py` application loads this model with `joblib` and uses it to generate predictions from newly entered student information.
+
+This separation between **model development in the notebook** and **model inference through the Python script** makes the trained model reusable without requiring the notebook to be executed each time a prediction is required.
