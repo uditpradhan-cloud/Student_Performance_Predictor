@@ -468,13 +468,3 @@ student_performance_prediction(1).ipynb
 ```
 
 The notebook contains the data analysis, preprocessing, model experiments, evaluation, and final model training workflow.
-
-````
-
-### One important point
-
-I **wouldn't include a fake `requirements.txt`** in the README because you don't currently have one in the repository. If you later create one, we can update the installation section to:
-
-```bash
-pip install -r requirements.txt
-````
