@@ -416,3 +416,64 @@ Student_Performance_Predictor/
 ├── student_performance_model_baseline(2).pkl
 ├── student_performance_model_v2_g1_g2.pkl
 └── student_performance_model_final.pkl
+
+````markdown
+## How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd Student_Performance_Predictor
+````
+
+### 2. Install Dependencies
+
+Install the required Python libraries:
+
+```bash
+pip install pandas numpy scikit-learn joblib matplotlib seaborn jupyter
+```
+
+### 3. Run the Prediction Program
+
+The trained final model is already included in the repository. Run:
+
+```bash
+python predict_student.py
+```
+
+The program will interactively ask for student information such as demographic details, education, family support, study habits, lifestyle, health, and absences.
+
+It then displays:
+
+* Predicted final grade (`G3`) out of 20
+* Performance level
+
+The prediction script loads the saved `student_performance_model_final.pkl` model automatically. 
+
+### 4. Explore the Notebook
+
+To reproduce or explore the model-development workflow:
+
+```bash
+jupyter notebook
+```
+
+Open:
+
+```text
+student_performance_prediction(1).ipynb
+```
+
+The notebook contains the data analysis, preprocessing, model experiments, evaluation, and final model training workflow.
+
+````
+
+### One important point
+
+I **wouldn't include a fake `requirements.txt`** in the README because you don't currently have one in the repository. If you later create one, we can update the installation section to:
+
+```bash
+pip install -r requirements.txt
+````
