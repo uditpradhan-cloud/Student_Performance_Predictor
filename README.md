@@ -354,9 +354,24 @@ This separation between **model development in the notebook** and **model infere
 
 ## Evaluation & Results
 
-The models were evaluated using MAE, RMSE, and R². The primary Random Forest model performed best among the initial models tested.
+Several regression models were explored during the project to identify a suitable approach for predicting the final grade (`G3`).
+
+### Models Evaluated
+
+The project experimented with:
+
+- Linear Regression
+- Random Forest Regression
+- Gradient Boosting Regression
+- Extra Trees Regression
+- HistGradientBoosting Regression
+- Tuned Random Forest Regression
+
+Additional experimental approaches were also explored, including a Version 2 Random Forest using `G1` and `G2`, and a two-stage classification + regression approach.
 
 ### Model Comparison
+
+The initial model comparison produced the following results:
 
 | Model | MAE | RMSE | R² |
 |---|---:|---:|---:|
@@ -364,15 +379,15 @@ The models were evaluated using MAE, RMSE, and R². The primary Random Forest mo
 | **Random Forest** | **2.9936** | **3.7485** | **0.3147** |
 | Gradient Boosting | 3.1077 | 3.9299 | 0.2468 |
 
-The Random Forest achieved the lowest MAE and RMSE and the highest R² among these three models.
+Among the initial models, **Random Forest Regression** achieved the lowest MAE and RMSE and the highest R², making it the selected approach for the primary prediction system.
 
-### Random Forest Cross-Validation
+### Cross-Validation
 
-Using 5-fold cross-validation, the Random Forest achieved:
+The selected Random Forest model was further evaluated using 5-fold cross-validation:
 
 - **MAE:** 2.99 marks
 - **RMSE:** 4.00 marks
 - **R²:** 0.216
 - **Predictions within ±2 marks:** 46.33%
 
-The results indicate that the model provides useful but limited-to-moderate predictive performance. Predictions should therefore be treated as estimates rather than guaranteed final grades.
+The results indicate useful but limited-to-moderate predictive performance. Predictions should therefore be treated as estimates rather than guaranteed final grades.
