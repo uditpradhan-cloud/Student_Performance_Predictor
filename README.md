@@ -31,3 +31,91 @@ The primary objective of this project is to develop a machine learning system ca
 The project focuses on determining whether demographic, educational, behavioral, family-support, lifestyle, and other non-final-grade attributes can provide useful predictive information about final academic performance.
 
 A secondary objective is to compare different regression approaches, evaluate their predictive performance, investigate feature importance, and package the resulting model into a reusable prediction application.
+
+## Dataset
+
+The project uses the **Student Performance** mathematics dataset stored in `student-mat(2).csv`.
+
+The dataset contains information about students' demographic background, family circumstances, educational environment, study habits, social activities, lifestyle, and academic performance.
+
+### Dataset Overview
+
+| Property             | Details                                    |
+| -------------------- | ------------------------------------------ |
+| Dataset              | Student Performance — Mathematics          |
+| Records              | 395 students                               |
+| Original columns     | 33                                         |
+| Prediction target    | `G3`                                       |
+| Target meaning       | Final mathematics grade                    |
+| Grade scale          | 0–20                                       |
+| Primary model inputs | 30 features                                |
+| `G1` / `G2`          | Excluded from the primary prediction model |
+
+The final grade, `G3`, is treated as the regression target. The primary model does not use `G1` or `G2` as input features, allowing the project to investigate prediction based on other student characteristics rather than directly using earlier-period grades.
+
+## Features
+
+The original dataset contains several categories of information about each student.
+
+### Demographic and Personal Information
+
+* `school` — Student's school
+* `sex` — Student's gender
+* `age` — Student's age
+* `address` — Urban or rural residence
+* `famsize` — Family size
+* `Pstatus` — Parent cohabitation status
+
+### Parent and Family Information
+
+* `Medu` — Mother's education level
+* `Fedu` — Father's education level
+* `Mjob` — Mother's job
+* `Fjob` — Father's job
+* `guardian` — Student's guardian
+* `famrel` — Quality of family relationships
+
+### School and Academic-Related Information
+
+* `reason` — Reason for choosing the school
+* `traveltime` — Travel time to school
+* `studytime` — Weekly study time
+* `failures` — Number of past class failures
+* `schoolsup` — Extra educational support
+* `famsup` — Family educational support
+* `paid` — Extra paid classes
+* `higher` — Desire for higher education
+
+### Activities and Lifestyle Information
+
+* `activities` — Participation in extracurricular activities
+* `nursery` — Attendance at nursery school
+* `internet` — Internet access at home
+* `romantic` — Romantic relationship status
+* `freetime` — Amount of free time
+* `goout` — Frequency of going out
+* `Dalc` — Workday alcohol consumption
+* `Walc` — Weekend alcohol consumption
+* `health` — Current health status
+* `absences` — Number of school absences
+
+### Target and Excluded Academic Grades
+
+* `G1` — First-period grade
+* `G2` — Second-period grade
+* `G3` — Final grade and prediction target
+
+For the **primary prediction system**, `G1` and `G2` are excluded from the input features. They were explored separately in a Version 2 experiment and are represented by the `student_performance_model_v2_g1_g2.pkl` model artifact.
+
+## Feature Types
+
+The notebook separates the 30 primary input features into:
+
+* **17 categorical features**
+* **13 numerical features**
+
+Categorical features are encoded before being passed to the machine learning models, while numerical features are retained as numerical values.
+
+After categorical encoding, the 30 original input features are transformed into **56 processed features** for model training.
+
+This preprocessing approach allows the regression models to work with both numerical and categorical student information within a unified machine learning pipeline.
