@@ -486,3 +486,8 @@ The notebook contains the data analysis, preprocessing, model experiments, evalu
 - Add automated input validation and clearer error handling.
 - Investigate explainable AI techniques to provide more detailed explanations for individual predictions.
 - Continuously retrain and evaluate the model as new student-performance data becomes available.
+
+## Author
+Made with curiosity by,
+**Udit Pradhan**
+Developed as part of the **IBM PBEL** project submission.
