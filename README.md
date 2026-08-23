@@ -2,11 +2,10 @@
 
 This project is an AI-driven machine learning system developed to predict a student's final mathematics grade (`G3`) using demographic, educational, behavioral, family, and lifestyle-related information. The project was developed as a submission for the IBM PBEL program.
 
----
-This repository contains the terminal-based implementation of my AI-Driven Student Performance Prediction System. The project uses a trained machine learning model to predict a student's final performance based on the provided student information. This repository provides a clear terminal view of the working project, including the trained model and prediction program.
+> [!IMPORTANT]
+> This repository contains the terminal-based implementation of my AI-Driven Student Performance Prediction System. The project uses a trained machine learning model to predict a student's final performance based on the provided student information. This repository provides a clear terminal view of the working project, including the trained model and prediction program.
 
-*The complete steps to run the project are provided in the README.md file. Follow the instructions in the README to set up and run the Student Performance Prediction system from the terminal.
----
+The complete steps to run the project are provided in the README.md file. Follow the instructions in the README to set up and run the Student Performance Prediction system from the terminal.
 
 The system uses the **Student Performance** dataset and explores multiple regression-based machine learning approaches to determine how well student-related attributes can be used to estimate final academic performance. The primary prediction workflow intentionally excludes the earlier academic grades (`G1` and `G2`) so that the model focuses on other student characteristics rather than relying directly on previous grades.
 
