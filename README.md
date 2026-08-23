@@ -22,8 +22,6 @@ The model is intended as a **predictive estimation tool**, not as a guaranteed m
 | [`student_performance_model_v2_g1_g2.pkl`](student_performance_model_v2_g1_g2.pkl)           | Serialized Version 2 model based on the experimental prediction approach that includes `G1` and `G2` as input features for predicting `G3`.                                                                                    |
 | [`student_performance_model_final.pkl`](student_performance_model_final.pkl)                 | Serialized final Random Forest regression pipeline used by `predict_student.py` to generate student performance predictions.                                                                                                   |
 
----
-
 ## How to Run
 
 ### 1. Clone the Repository
