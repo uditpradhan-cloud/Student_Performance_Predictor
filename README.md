@@ -351,3 +351,28 @@ The final model is trained using the complete available feature/target dataset a
 The accompanying `predict_student.py` application loads this model with `joblib` and uses it to generate predictions from newly entered student information.
 
 This separation between **model development in the notebook** and **model inference through the Python script** makes the trained model reusable without requiring the notebook to be executed each time a prediction is required.
+
+## Evaluation & Results
+
+The models were evaluated using MAE, RMSE, and R². The primary Random Forest model performed best among the initial models tested.
+
+### Model Comparison
+
+| Model | MAE | RMSE | R² |
+|---|---:|---:|---:|
+| Linear Regression | 3.3953 | 4.1957 | 0.1415 |
+| **Random Forest** | **2.9936** | **3.7485** | **0.3147** |
+| Gradient Boosting | 3.1077 | 3.9299 | 0.2468 |
+
+The Random Forest achieved the lowest MAE and RMSE and the highest R² among these three models.
+
+### Random Forest Cross-Validation
+
+Using 5-fold cross-validation, the Random Forest achieved:
+
+- **MAE:** 2.99 marks
+- **RMSE:** 4.00 marks
+- **R²:** 0.216
+- **Predictions within ±2 marks:** 46.33%
+
+The results indicate that the model provides useful but limited-to-moderate predictive performance. Predictions should therefore be treated as estimates rather than guaranteed final grades.
