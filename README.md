@@ -468,3 +468,21 @@ student_performance_prediction(1).ipynb
 ```
 
 The notebook contains the data analysis, preprocessing, model experiments, evaluation, and final model training workflow.
+
+## Limitations
+
+- The dataset contains 395 student records, so the model may not generalize to larger or different student populations.
+- The primary model does not use `G1` and `G2`, which limits the academic-history information available to the model.
+- The Random Forest model has moderate predictive performance, so its predictions should be treated as estimates rather than guaranteed outcomes.
+- Feature importance indicates model reliance on certain variables but does not establish causal relationships.
+- The prediction system depends on users providing input values in the expected format and ranges.
+
+## Future Improvements
+
+- Evaluate the system on larger and more diverse student datasets.
+- Explore additional machine learning and ensemble techniques.
+- Perform further hyperparameter optimization and model validation.
+- Develop a graphical or web-based interface for easier interaction.
+- Add automated input validation and clearer error handling.
+- Investigate explainable AI techniques to provide more detailed explanations for individual predictions.
+- Continuously retrain and evaluate the model as new student-performance data becomes available.
